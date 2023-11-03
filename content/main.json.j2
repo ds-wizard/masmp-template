@@ -1,0 +1,11 @@
+{%- set km = ctx.knowledgeModel -%}
+{%- set repliesMap = ctx.questionnaireReplies -%}
+{%- set json = {} -%}
+
+{%- import 'content/chapter1.j2' as chapter1 -%}
+{%- import 'content/chapter6.j2' as chapter6 -%}
+
+{{- chapter1.render(km, repliesMap, json) -}}
+{{- chapter6.render(km, repliesMap, json) -}}
+
+{{ json|tojson(2) }}

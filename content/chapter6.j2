@@ -1,0 +1,24 @@
+{%- macro render(km, repliesMap, json) -%}
+
+{#- ****************************************************************************************************************** -#}
+{#- CHAPTER: Reproducibility                                                                                           -#}
+{#- ****************************************************************************************************************** -#}
+{%- set chapterUuid = '7426b2df-f9ed-4e65-a978-5995183e4e63' -%}
+
+{#- ------------------------------------------------------------------------------------------------------------------ -#}
+{#- QUESTION: Do you provide releases of your software? #}
+{%- set questionUuid = 'f55943d2-5c95-49b6-ba8f-a56ba76fc484' -%}
+
+{#- ANSWER: Yes -#}
+{%- set answer_uuid = '27efa00f-b9d4-4134-9d36-e29f9037f9fb' -%}
+{%- if repliesMap[[chapterUuid, questionUuid]|reply_path]|reply_str_value == answer_uuid -%}
+  {#- QUESTION: What is the version of the current release -#}
+  {%- set question2Uuid = 'dc7b8ef8-aa1d-4abf-9a12-f3bbf52f59af' -%}
+  {% do json.update({"schema:softwareVersion": repliesMap[[chapterUuid, questionUuid, answer_uuid, question2Uuid]|reply_path]|reply_str_value}) %}
+{%- endif -%}
+
+{#- ANSWER: No -#}
+{#- <no-mapping> -#}
+{#- ------------------------------------------------------------------------------------------------------------------ -#}
+
+{%- endmacro -%}

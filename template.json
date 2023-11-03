@@ -1,0 +1,46 @@
+{
+  "templateId": "masmp",
+  "organizationId": "smw",
+  "version": "0.0.2",
+  "name": "maSMP",
+  "description": "A document template that converts the replies from SMP questionnaire to the maSMP JSON.",
+  "license": "Apache-2.0",
+  "metamodelVersion": 11,
+  "allowedPackages": [
+    {
+      "orgId": null,
+      "kmId": null,
+      "minVersion": null,
+      "maxVersion": null
+    }
+  ],
+  "formats": [
+    {
+      "uuid": "aecd4c60-8bbd-4ad7-b2fb-ef8fd12ec40f",
+      "name": "JSON",
+      "icon": "fas fa-globe",
+      "steps": [
+        {
+          "name": "jinja",
+          "options": {
+            "content-type": "application/json",
+            "extension": "json",
+            "template": "content/main.json.j2"
+          }
+        }
+      ]
+    }
+  ],
+  "_tdk": {
+    "version": "3.28.0",
+    "readmeFile": "README.md",
+    "files": [
+      "content/*",
+      "LICENSE",
+      ".gitignore", 
+      "!.git/",
+      "!env", 
+      "!.env"
+    ]
+  }
+}
